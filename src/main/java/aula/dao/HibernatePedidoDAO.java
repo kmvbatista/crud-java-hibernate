@@ -16,7 +16,8 @@ public class HibernatePedidoDAO implements PedidoDAO {
 
 	@Override
 	public void salvar(Pedido pedido) {
-    session.beginTransaction();
+		session.beginTransaction();
+		session.save(pedido.getPessoa());
 		session.save( pedido );
 		session.getTransaction().commit();
 	}
